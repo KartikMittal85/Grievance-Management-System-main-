@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Grievance ID: {{ grievance.id }}</h3>
+<p><strong>Category:</strong> {{ grievance.category }}</p>
+<p><strong>Description:</strong> {{ grievance.description }}</p>
+<p><strong>Current Status:</strong> 
+    {% if grievance.status == 'Submitted' %}🟡
+    {% elif grievance.status == 'Seen' %}🔵
+    {% elif grievance.status == 'In Progress' %}🟠
+    {% elif grievance.status == 'Resolved' %}✅
+    {% elif grievance.status == 'Rejected' %}❌
+    {% endif %}
+    {{ grievance.status }}
+</p>
+<p><strong>Remarks:</strong> {{ grievance.remarks }}</p>
+<p><strong>Last Updated:</strong> {{ grievance.last_updated.strftime('%d-%b-%Y') }}</p>
+<a href="{{ url_for('student_dashboard') }}" class="btn btn-secondary">Back to Dashboard</a>
+{% endblock %}

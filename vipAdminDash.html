@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VIP Admin Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <h2>VIP Admin Dashboard</h2>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>User ID</th>
+            <th>Category</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th>Remarks</th>
+            <th>Last Updated</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for g in grievances %}
+            <tr>
+                <td>{{ g.user_id }}</td>
+                <td>{{ g.category }}</td>
+                <td>{{ g.title }}</td>
+                <td>{{ g.description }}</td>
+                <td>
+                    {% if g.status == "Submitted" %}🟡 Submitted{% endif %}
+                    {% if g.status == "Seen" %}🔵 Seen{% endif %}
+                    {% if g.status == "In Progress" %}🟠 In Progress{% endif %}
+                    {% if g.status == "Resolved" %}✅ Resolved{% endif %}
+                    {% if g.status == "Rejected" %}❌ Rejected{% endif %}
+                </td>
+                <td>{{ g.remarks or "-" }}</td>
+                <td>{{ g.last_updated }}</td>
+                <td>
+                    <a href="{{ url_for('update_status', grievance_id=g._id) }}" class="btn btn-sm btn-warning">Update Status</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

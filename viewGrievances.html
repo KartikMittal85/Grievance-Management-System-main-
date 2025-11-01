@@ -1,0 +1,35 @@
+<h2>All Grievances</h2>
+
+<table border="1">
+    <tr>
+        <th>Student ID</th>
+        <th>Issue Category</th>
+        <th>Description</th>
+        <th>Status</th>
+        <th>Remarks</th>
+        <th>Update</th>
+    </tr>
+    {% for g in grievances %}
+    <tr>
+        <form method="POST">
+            <td>{{ g.student_id }}</td>
+            <td>{{ g.issue_category }}</td>
+            <td>{{ g.description }}</td>
+            <td>
+                <select name="status">
+                    <option value="Pending" {% if g.status=='Pending' %}selected{% endif %}>Pending</option>
+                    <option value="In Progress" {% if g.status=='In Progress' %}selected{% endif %}>In Progress</option>
+                    <option value="Resolved" {% if g.status=='Resolved' %}selected{% endif %}>Resolved</option>
+                </select>
+            </td>
+            <td>
+                <input type="text" name="remarks" value="{{ g.remarks }}">
+            </td>
+            <td>
+                <input type="hidden" name="grievance_id" value="{{ g._id }}">
+                <button type="submit">Update</button>
+            </td>
+        </form>
+    </tr>
+    {% endfor %}
+</table>

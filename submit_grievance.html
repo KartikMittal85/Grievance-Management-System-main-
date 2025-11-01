@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Submit Grievance</title>
+</head>
+<body>
+    <h2>Submit New Grievance</h2>
+    <a href="{{ url_for('student_dashboard') }}">Back to Dashboard</a>
+    <form method="POST">
+        <label>Category:</label>
+        <input type="text" name="category" required><br><br>
+        <label>Description:</label><br>
+        <textarea name="description" rows="5" cols="50" required></textarea><br><br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

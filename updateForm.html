@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Grievance</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <h2>Update Grievance</h2>
+    <hr>
+
+    <div class="card mb-3">
+        <div class="card-body">
+            <h5 class="card-title">{{ grievance.title }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Category: {{ grievance.category }}</h6>
+            <p class="card-text">{{ grievance.description }}</p>
+            <p>Status: <strong>{{ grievance.status }}</strong></p>
+            <p>Remarks: <strong>{{ grievance.remarks or "None" }}</strong></p>
+        </div>
+    </div>
+
+    <form method="POST">
+        {{ form.hidden_tag() }}
+
+        <div class="form-group">
+            {{ form.status.label(class="form-label") }}
+            {{ form.status(class="form-control") }}
+        </div>
+
+        <div class="form-group">
+            {{ form.remarks.label(class="form-label") }}
+            {{ form.remarks(class="form-control", rows="4") }}
+        </div>
+
+        <button type="submit" class="btn btn-success">{{ form.submit.label.text }}</button>
+        <a href="{{ url_for('dashboard_admin') }}" class="btn btn-secondary">Back to Dashboard</a>
+    </form>
+</div>
+</body>
+</html>
