@@ -1,0 +1,76 @@
+body { font-family: Arial, sans-serif; margin: 20px; }
+header h1 { color: #333; }
+table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+th, td { padding: 10px; text-align: left; }
+th { background-color: #f2f2f2; }
+tr:nth-child(even) { background-color: #f9f9f9; }
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f5f5f5;
+}
+
+h2, h3 {
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+    color: #007bff;
+    margin-right: 10px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+}
+
+table th, table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+table th {
+    background-color: #f0f0f0;
+}
+
+.status-badge {
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.status-submitted { background-color: #f0ad4e; } /* 🟡 Submitted */
+.status-seen { background-color: #5bc0de; }      /* 🔵 Seen */
+.status-in-progress { background-color: #f39c12; } /* 🟠 In Progress */
+.status-resolved { background-color: #28a745; }   /* ✅ Resolved */
+.status-rejected { background-color: #dc3545; }   /* ❌ Rejected */
+
+form input[type="text"], form textarea, form select {
+    padding: 5px;
+    margin-top: 5px;
+    width: 90%;
+}
+
+form button {
+    padding: 5px 10px;
+    margin-top: 5px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
